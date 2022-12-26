@@ -17,16 +17,10 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
       child: Scaffold(
         body: currentIndex == 0
-            ? homepage(
-                title: '',
-              )
+            ? Container()
             : currentIndex == 1
                 ? const FormPage()
-                : currentIndex == 2
-                    ? const Report(
-                        title: '',
-                      )
-                    : Container(),
+                : const Report(title: ''),
         bottomNavigationBar: BottomNavigationBar(
             currentIndex: currentIndex,
             backgroundColor: Colors.transparent,
