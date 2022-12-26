@@ -8,8 +8,46 @@ class RejectedForm extends StatefulWidget {
 }
 
 class _RejectedFormState extends State<RejectedForm> {
+  List<String> list = ["No Budget", "No manager", "Existing Sytem", "Other"];
+  String dropdownValue = "No Budget";
+  final TextEditingController otherCont = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Center();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        DropdownButton<String>(
+          value: dropdownValue,
+          icon: const Icon(Icons.arrow_downward_sharp),
+          elevation: 16,
+          onChanged: (String? value) {
+            // This is called when the user selects an item.
+            setState(() {
+              dropdownValue = value!;
+            });
+          },
+          items: list.map<DropdownMenuItem<String>>((String value) {
+            return DropdownMenuItem<String>(
+              value: value,
+              child: Text(value),
+            );
+          }).toList(),
+        ),
+        dropdownValue == "Other"
+            ? TextFormField(
+                controller: otherCont,
+                maxLines: 5,
+                keyboardType: TextInputType.phone,
+                decoration: InputDecoration(
+                  fillColor: Colors.black45,
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(40.0),
+                  ),
+                  hintText: "Enter reason here ...",
+                ),
+              )
+            : const SizedBox.shrink(),
+      ],
+    );
   }
 }
