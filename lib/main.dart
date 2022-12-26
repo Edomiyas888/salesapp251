@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../presenatiation_layer/Screens/Login.dart';
+import 'package:salesapp251/presenatiation_layer/Screens/FormPage.dart';
+import 'package:salesapp251/presenatiation_layer/Screens/Home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,10 +12,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/home',
       routes: {
-        '/': (context) => Login(
+        '/': (context) => const Login(
               title: '',
             ),
+            '/home': (context)=> const HomePage(),
+            '/formPage': (context)=> const FormPage(),
       },
     );
   }
@@ -39,18 +44,6 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
