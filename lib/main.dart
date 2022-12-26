@@ -18,8 +18,8 @@ class MyApp extends StatelessWidget {
         '/': (context) => const Login(
               title: '',
             ),
-            '/home': (context)=> const HomePage(),
-            '/formPage': (context)=> const FormPage(),
+        '/home': (context) => const HomePage(),
+        '/formPage': (context) => const FormPage(),
       },
     );
   }
@@ -44,7 +44,6 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

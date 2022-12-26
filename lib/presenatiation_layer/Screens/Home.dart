@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:salesapp251/presenatiation_layer/Screens/FormPage.dart';
+import 'package:salesapp251/presenatiation_layer/Screens/Report.dart';
+import 'package:salesapp251/presenatiation_layer/Screens/homepage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -14,31 +16,39 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: currentIndex==0? Container(): currentIndex==1? const FormPage():Container(),
+        body: currentIndex == 0
+            ? homepage(
+                title: '',
+              )
+            : currentIndex == 1
+                ? const FormPage()
+                : currentIndex == 2
+                    ? const Report(
+                        title: '',
+                      )
+                    : Container(),
         bottomNavigationBar: BottomNavigationBar(
-          currentIndex: currentIndex,
-          backgroundColor: Colors.transparent,
-          items: const [
-            BottomNavigationBarItem(
-              label: "Home",
-              icon: Icon(Icons.home),
-            ),
-            BottomNavigationBarItem(
-              label: "Info",
-              icon: Icon(Icons.info),
-            ),
-            BottomNavigationBarItem(
-              label: "History",
-              icon: Icon(Icons.history),
-            ),
-          ],
-          onTap: (int value) {
-            currentIndex = value;
-            setState(() {
-              
-            });
-          }),
-        ),
-      );
+            currentIndex: currentIndex,
+            backgroundColor: Colors.transparent,
+            items: const [
+              BottomNavigationBarItem(
+                label: "Home",
+                icon: Icon(Icons.home),
+              ),
+              BottomNavigationBarItem(
+                label: "Info",
+                icon: Icon(Icons.info),
+              ),
+              BottomNavigationBarItem(
+                label: "History",
+                icon: Icon(Icons.history),
+              ),
+            ],
+            onTap: (int value) {
+              currentIndex = value;
+              setState(() {});
+            }),
+      ),
+    );
   }
 }
