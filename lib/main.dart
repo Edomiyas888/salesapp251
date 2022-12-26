@@ -12,6 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+<<<<<<< HEAD
       debugShowCheckedModeBanner: false,
       initialRoute: '/home',
       routes: {
@@ -92,3 +93,9 @@ class login extends StatelessWidget {
     throw UnimplementedError();
   }
 }
+=======
+      home: Login(),
+    );
+  }
+}
+>>>>>>> 25bc028158c2d6265c1b6d6e1f1b9d0fbba58e5f
