@@ -13,16 +13,21 @@ class FormPage extends StatefulWidget {
 class _FormPageState extends State<FormPage> {
   final TextEditingController bldNameCont = TextEditingController();
   final TextEditingController bldLocationCont = TextEditingController();
+  final TextEditingController rejectedFormCont = TextEditingController();
+  final TextEditingController acceptedNameCont = TextEditingController();
+  final TextEditingController acceptedPhoneCont = TextEditingController();
+  final TextEditingController acceptedEmailCont = TextEditingController();
   Confirmation groupValue = Confirmation.accepted;
 
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.all(12.0),
+        padding: const EdgeInsets.only(left: 22.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 27.0),
             const Text(
               "Building Name:",
               style: TextStyle(
@@ -95,22 +100,22 @@ class _FormPageState extends State<FormPage> {
                 ),
               ],
             ),
-            const SizedBox(height: 21.3),
+            const SizedBox(height: 27.0),
             groupValue == Confirmation.accepted
-                ? const AcceptedForm()
-                : const RejectedForm(),
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 50.0, vertical: 25.0),
-              child: ElevatedButton(
-                onPressed: () {},
-                child: const Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-                  child: Text(
-                    "Submit",
-                    style: TextStyle(fontSize: 18.0),
-                  ),
+                ? AcceptedForm(
+                    nameCont: acceptedNameCont,
+                    phoneCont: acceptedPhoneCont,
+                    emailCont: acceptedEmailCont,
+                  )
+                : RejectedForm(formCont: rejectedFormCont),
+            const SizedBox(height: 27.0),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+                child: Text(
+                  "Submit",
+                  style: TextStyle(fontSize: 18.0),
                 ),
               ),
             ),

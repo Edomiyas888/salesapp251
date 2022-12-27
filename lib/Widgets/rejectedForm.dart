@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class RejectedForm extends StatefulWidget {
-  const RejectedForm({super.key});
+  const RejectedForm({super.key, required this.formCont});
+  final TextEditingController formCont;
 
   @override
   State<RejectedForm> createState() => _RejectedFormState();
@@ -10,7 +11,6 @@ class RejectedForm extends StatefulWidget {
 class _RejectedFormState extends State<RejectedForm> {
   List<String> list = ["No Budget", "No manager", "Existing Sytem", "Other"];
   String dropdownValue = "No Budget";
-  final TextEditingController otherCont = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -35,7 +35,7 @@ class _RejectedFormState extends State<RejectedForm> {
         ),
         dropdownValue == "Other"
             ? TextFormField(
-                controller: otherCont,
+                controller: widget.formCont,
                 maxLines: 5,
                 keyboardType: TextInputType.phone,
                 decoration: InputDecoration(

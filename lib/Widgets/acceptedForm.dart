@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
 class AcceptedForm extends StatefulWidget {
-  const AcceptedForm({super.key});
+  const AcceptedForm({super.key, required this.nameCont, required this.phoneCont, required this.emailCont,});
+  final TextEditingController nameCont;
+  final TextEditingController phoneCont;
+  final TextEditingController emailCont;
 
   @override
   State<AcceptedForm> createState() => _AcceptedFormState();
 }
 
 class _AcceptedFormState extends State<AcceptedForm> {
-  final TextEditingController nameCont = TextEditingController();
-  final TextEditingController phoneCont = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -26,7 +27,7 @@ class _AcceptedFormState extends State<AcceptedForm> {
         ),
         const SizedBox(height: 13.5),
         TextField(
-          controller: nameCont,
+          controller: widget.nameCont,
           textInputAction: TextInputAction.next,
           decoration: InputDecoration(
             border: OutlineInputBorder(
@@ -47,7 +48,7 @@ class _AcceptedFormState extends State<AcceptedForm> {
         ),
         const SizedBox(height: 13.5),
         TextField(
-          controller: phoneCont,
+          controller: widget.phoneCont,
           keyboardType: TextInputType.phone,
           decoration: InputDecoration(
             border: OutlineInputBorder(
