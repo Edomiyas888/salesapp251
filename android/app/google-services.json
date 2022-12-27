@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "131797191580",
+    "project_id": "salesapp251",
+    "storage_bucket": "salesapp251.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:131797191580:android:b962d74845d3f487d7d659",
+        "android_client_info": {
+          "package_name": "com.example.salesapp251"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "131797191580-u09rbrktsfc0d3ggi5avtjns784fokjt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzZL_wBIc8FeETUTt1kHo1tCgeKAHm704"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "131797191580-u09rbrktsfc0d3ggi5avtjns784fokjt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
