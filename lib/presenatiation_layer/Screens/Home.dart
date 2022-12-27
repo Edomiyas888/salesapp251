@@ -7,7 +7,8 @@ import 'package:salesapp251/presenatiation_layer/location.dart';
 import '../../functions/methods.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage({super.key, this.email});
+  final String? email;
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -26,7 +27,7 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
       child: Scaffold(
         body: currentIndex == 0
-            ? Container()
+            ? FrontPage(email:widget.email!)
             : currentIndex == 1
                 ? const FormPage()
                 : const Report(title: ''),

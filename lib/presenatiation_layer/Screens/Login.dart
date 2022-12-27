@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:salesapp251/functions/auth.dart';
+import 'package:salesapp251/presenatiation_layer/Screens/Home.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -13,8 +14,8 @@ class _LoginState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
 
   bool isUserExist = true;
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -80,15 +81,12 @@ class _LoginState extends State<Login> {
                                 },
                                 textInputAction: TextInputAction.next,
                                 controller: _emailController,
-                                keyboardType: TextInputType.phone,
-                                maxLength: 10,
+                                keyboardType: TextInputType.emailAddress,
                                 decoration: const InputDecoration(
-                                    hintText: 'Phone',
+                                    hintText: 'Email...',
                                     border: OutlineInputBorder()),
                                 validator: (value) {
-                                  if (value == null ||
-                                      value.isEmpty ||
-                                      value.length > 10) {
+                                  if (value == null || value.isEmpty) {
                                     return "Please enter the phone correctly";
                                   }
 
@@ -145,12 +143,11 @@ class _LoginState extends State<Login> {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(content: Text('Loading...')),
                                   );
-                                  bool ensure = await signin(
+                                  String? resultEmail = await signin(
                                       _emailController.text,
                                       _passwordController.text);
-                                  if (ensure) {
-                                    Navigator.pushNamedAndRemoveUntil(
-                                        context, "/home", (route) => false);
+                                  if (resultEmail!=null) {
+                                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>HomePage(email:resultEmail)), (route) => false);
                                   }
                                 }
                               },
