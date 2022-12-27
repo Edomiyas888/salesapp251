@@ -80,15 +80,13 @@ class _LoginState extends State<Login> {
                                 },
                                 textInputAction: TextInputAction.next,
                                 controller: _emailController,
-                                keyboardType: TextInputType.phone,
+                                keyboardType: TextInputType.emailAddress,
                                 maxLength: 10,
                                 decoration: const InputDecoration(
-                                    hintText: 'Phone',
+                                    hintText: 'Email...',
                                     border: OutlineInputBorder()),
                                 validator: (value) {
-                                  if (value == null ||
-                                      value.isEmpty ||
-                                      value.length > 10) {
+                                  if (value == null || value.isEmpty) {
                                     return "Please enter the phone correctly";
                                   }
 
