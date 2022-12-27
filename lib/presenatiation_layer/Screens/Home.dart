@@ -4,6 +4,8 @@ import 'package:salesapp251/presenatiation_layer/Screens/Report.dart';
 import 'package:salesapp251/presenatiation_layer/Screens/homepage.dart';
 import 'package:salesapp251/presenatiation_layer/location.dart';
 
+import '../../functions/methods.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -16,6 +18,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     determinePosition();
+    uploadForm();
   }
   int currentIndex = 0;
   @override

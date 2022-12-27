@@ -37,7 +37,6 @@ class _RejectedFormState extends State<RejectedForm> {
             ? TextFormField(
                 controller: widget.formCont,
                 maxLines: 5,
-                keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
                   fillColor: Colors.black45,
                   border: OutlineInputBorder(
