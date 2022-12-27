@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:salesapp251/functions/auth.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -12,7 +13,7 @@ class _LoginState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
 
   bool isUserExist = true;
-  TextEditingController _phoneController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
   @override
@@ -78,7 +79,7 @@ class _LoginState extends State<Login> {
                                   // }
                                 },
                                 textInputAction: TextInputAction.next,
-                                controller: _phoneController,
+                                controller: _emailController,
                                 keyboardType: TextInputType.phone,
                                 maxLength: 10,
                                 decoration: const InputDecoration(
@@ -144,6 +145,13 @@ class _LoginState extends State<Login> {
                                   ScaffoldMessenger.of(context).showSnackBar(
                                     const SnackBar(content: Text('Loading...')),
                                   );
+                                  bool ensure = await signin(
+                                      _emailController.text,
+                                      _passwordController.text);
+                                  if (ensure) {
+                                    Navigator.pushNamedAndRemoveUntil(
+                                        context, "/home", (route) => false);
+                                  }
                                 }
                               },
                               child: const Padding(
