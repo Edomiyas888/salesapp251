@@ -18,7 +18,7 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     determinePosition();
-    uploadForm();
+    fetchEmployee();
   }
   int currentIndex = 0;
   @override
@@ -31,8 +31,8 @@ class _HomePageState extends State<HomePage> {
                 ? const FormPage()
                 : const Report(title: ''),
         bottomNavigationBar: BottomNavigationBar(
+          elevation: 0.0,
             currentIndex: currentIndex,
-            backgroundColor: Colors.transparent,
             items: const [
               BottomNavigationBarItem(
                 label: "Home",
