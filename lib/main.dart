@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:salesapp251/presenatiation_layer/Screens/FormPage.dart';
 import 'package:salesapp251/presenatiation_layer/Screens/Home.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/home',
+      initialRoute: '/',
       routes: {
         '/': (context) => const Login(
               title: '',
