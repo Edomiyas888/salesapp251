@@ -109,3 +109,36 @@ Future<void> deleteTask(String email, String id)async{
   final _firestore = FirebaseFirestore.instance;
   await _firestore.collection("sales").doc(email).collection("task").doc(id).delete();
 }
+Future<List<Building>> fetchAccepted(String email)async{
+  final fireStore = FirebaseFirestore.instance;
+  QuerySnapshot<Map<String, dynamic>> queryDocumentSnapshot =
+      await fireStore.collection("sales").doc(email).collection("accepted").get();
+  List<QueryDocumentSnapshot<Map<String, dynamic>>> queryMap =
+      queryDocumentSnapshot.docs;
+  List<Map<String, dynamic>> docList = queryMap.map((e) => e.data()).toList();
+  List<Building> buildingList =
+      docList.map((e) => Building.fromJson(e)).toList();
+  return buildingList;
+}
+Future<List<Building>> fetchRejected(String email)async{
+  final fireStore = FirebaseFirestore.instance;
+  QuerySnapshot<Map<String, dynamic>> queryDocumentSnapshot =
+      await fireStore.collection("sales").doc(email).collection("rejected").get();
+  List<QueryDocumentSnapshot<Map<String, dynamic>>> queryMap =
+      queryDocumentSnapshot.docs;
+  List<Map<String, dynamic>> docList = queryMap.map((e) => e.data()).toList();
+  List<Building> buildingList =
+      docList.map((e) => Building.fromJson(e)).toList();
+  return buildingList;
+}
+Future<List<Building>> fetchPending(String email)async{
+  final fireStore = FirebaseFirestore.instance;
+  QuerySnapshot<Map<String, dynamic>> queryDocumentSnapshot =
+      await fireStore.collection("sales").doc(email).collection("pending").get();
+  List<QueryDocumentSnapshot<Map<String, dynamic>>> queryMap =
+      queryDocumentSnapshot.docs;
+  List<Map<String, dynamic>> docList = queryMap.map((e) => e.data()).toList();
+  List<Building> buildingList =
+      docList.map((e) => Building.fromJson(e)).toList();
+  return buildingList;
+}
