@@ -60,6 +60,7 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                     width: 300,
+                    height: 230.0,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Form(
@@ -82,8 +83,7 @@ class _LoginState extends State<Login> {
                                 },
                                 textInputAction: TextInputAction.next,
                                 controller: _emailController,
-                                keyboardType: TextInputType.phone,
-                                maxLength: 10,
+                                keyboardType: TextInputType.emailAddress,
                                 decoration: const InputDecoration(
                                     hintText: 'Phone',
                                     border: OutlineInputBorder()),
