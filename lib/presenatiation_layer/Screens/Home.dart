@@ -19,29 +19,27 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     super.initState();
     determinePosition();
-    fetchEmployee();
   }
+
   int currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: const Text("Space251"),
+          centerTitle: true,
+        ),
         body: currentIndex == 0
-            ? FrontPage(email:widget.email!)
-            : currentIndex == 1
-                ? const FormPage()
-                : const Report(title: ''),
+            ? FrontPage(email: widget.email!)
+            : const Report(),
         bottomNavigationBar: BottomNavigationBar(
-          elevation: 0.0,
+            elevation: 0.0,
             currentIndex: currentIndex,
             items: const [
               BottomNavigationBarItem(
                 label: "Home",
                 icon: Icon(Icons.home),
-              ),
-              BottomNavigationBarItem(
-                label: "Info",
-                icon: Icon(Icons.info),
               ),
               BottomNavigationBarItem(
                 label: "History",

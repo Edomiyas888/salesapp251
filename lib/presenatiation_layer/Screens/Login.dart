@@ -85,7 +85,7 @@ class _LoginState extends State<Login> {
                                 controller: _emailController,
                                 keyboardType: TextInputType.emailAddress,
                                 decoration: const InputDecoration(
-                                    hintText: 'Phone',
+                                    hintText: 'Email...',
                                     border: OutlineInputBorder()),
                                 validator: (value) {
                                   if (value == null ||
@@ -108,7 +108,7 @@ class _LoginState extends State<Login> {
                                 controller: _passwordController,
                                 obscureText: true,
                                 decoration: const InputDecoration(
-                                    hintText: 'Password',
+                                    hintText: 'Password...',
                                     border: OutlineInputBorder()),
                                 style: const TextStyle(),
                                 validator: (value) {

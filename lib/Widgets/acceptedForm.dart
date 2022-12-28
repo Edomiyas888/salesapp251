@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AcceptedForm extends StatefulWidget {
-  const AcceptedForm({super.key, required this.nameCont, required this.phoneCont, required this.emailCont,});
+  const AcceptedForm({super.key, required this.nameCont, required this.phoneCont});
   final TextEditingController nameCont;
   final TextEditingController phoneCont;
-  final TextEditingController emailCont;
 
   @override
   State<AcceptedForm> createState() => _AcceptedFormState();

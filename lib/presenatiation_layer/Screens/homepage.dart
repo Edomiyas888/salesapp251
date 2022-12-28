@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:salesapp251/functions/methods.dart';
 import 'package:salesapp251/models/buildingModel.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:salesapp251/presenatiation_layer/Screens/FormPage.dart';
 
 class FrontPage extends StatefulWidget {
   const FrontPage({super.key, required this.email});
@@ -28,58 +29,63 @@ class _FrontPageState extends State<FrontPage> {
             itemBuilder: ((context, index) {
               return Container(
                 padding: const EdgeInsets.symmetric(
-                    horizontal: 26.0, vertical: 11.0),
+                    horizontal: 26.0, vertical: 6.0).copyWith(top:24.0),
                 height: 110.0,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(40.0),
                 ),
-                child: Card(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 11.0),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment:
-                              MainAxisAlignment.spaceEvenly,
-                          children: [
-                            const Text(
-                              "Building:",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 18.0,
+                child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>FormPage(email:widget.email, assignedBld:buildingList[index])));
+                  },
+                  child: Card(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 6.0),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment:
+                                MainAxisAlignment.spaceAround,
+                            children: [
+                              const Text(
+                                "Building:",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18.0,
+                                ),
                               ),
-                            ),
-                            Text(
-                              buildingList[index].blgName,
-                              style: const TextStyle(
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.w400,
+                              Text(
+                                buildingList[index].blgName,
+                                style: const TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 13.0),
-                        Row(
-                          mainAxisAlignment:
-                              MainAxisAlignment.spaceEvenly,
-                          children: [
-                            const Text(
-                              "Location:",
-                              style: TextStyle(
-                                fontWeight: FontWeight.w500,
-                                fontSize: 18.0,
+                            ],
+                          ),
+                          const SizedBox(height: 6.0),
+                          Row(
+                            mainAxisAlignment:
+                                MainAxisAlignment.spaceAround,
+                            children: [
+                              const Text(
+                                "Location:",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 18.0,
+                                ),
                               ),
-                            ),
-                            Text(
-                              buildingList[index].location,
-                              style: const TextStyle(
-                                fontSize: 18.0,
-                                fontWeight: FontWeight.w400,
+                              Text(
+                                buildingList[index].location,
+                                style: const TextStyle(
+                                  fontSize: 18.0,
+                                  fontWeight: FontWeight.w400,
+                                ),
                               ),
-                            ),
-                          ],
-                        ),
-                      ],
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
