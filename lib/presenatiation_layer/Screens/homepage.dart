@@ -6,8 +6,6 @@ import 'package:salesapp251/functions/methods.dart';
 import 'package:salesapp251/models/buildingModel.dart';
 import 'package:fl_chart/fl_chart.dart';
 
-import '../../Widgets/chart_container.dart';
-
 class FrontPage extends StatefulWidget {
   const FrontPage({super.key, required this.email});
   final String email;
@@ -54,17 +52,17 @@ class _FrontPageState extends State<FrontPage> {
             }),
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Container(
-            width: 400,
-            height: 400,
-            child: ChartContainer(
-                title: 'Bar Chart',
-                color: Color(0xfffc5185),
-                chart: BarChartContent()),
-          ),
-        )
+        // Padding(
+        //   padding: const EdgeInsets.all(8.0),
+        //   child: Container(
+        //     width: 400,
+        //     height: 400,
+        //     child: ChartContainer(
+        //         title: 'Bar Chart',
+        //         color: Color(0xfffc5185),
+        //         chart: BarChartContent()),
+        //   ),
+        // ),
       ],
     );
   }

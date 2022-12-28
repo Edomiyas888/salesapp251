@@ -117,9 +117,9 @@ class _ReportState extends State<Report> {
                   Container(
                     width: 75,
                     height: 50,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         image: DecorationImage(
-                            image: AssetImage('../xxc/Image/yes.png'))),
+                            image: AssetImage('assets/images/no.png'))),
                   )
                 ],
               ),
