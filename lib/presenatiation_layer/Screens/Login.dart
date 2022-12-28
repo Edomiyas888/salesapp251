@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:salesapp251/functions/auth.dart';
-import 'package:salesapp251/presenatiation_layer/Screens/Home.dart';
+
+import 'Home.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -14,8 +15,8 @@ class _LoginState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
 
   bool isUserExist = true;
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -68,7 +69,7 @@ class _LoginState extends State<Login> {
                             isUserExist
                                 ? Container()
                                 : const Text(
-                                    "Phone number or password is incorrect",
+                                    "email or password is incorrect",
                                     style: TextStyle(color: Colors.red),
                                   ),
                             Padding(
@@ -81,12 +82,15 @@ class _LoginState extends State<Login> {
                                 },
                                 textInputAction: TextInputAction.next,
                                 controller: _emailController,
-                                keyboardType: TextInputType.emailAddress,
+                                keyboardType: TextInputType.phone,
+                                maxLength: 10,
                                 decoration: const InputDecoration(
-                                    hintText: 'Email...',
+                                    hintText: 'Phone',
                                     border: OutlineInputBorder()),
                                 validator: (value) {
-                                  if (value == null || value.isEmpty) {
+                                  if (value == null ||
+                                      value.isEmpty ||
+                                      value.length > 10) {
                                     return "Please enter the phone correctly";
                                   }
 
@@ -146,8 +150,13 @@ class _LoginState extends State<Login> {
                                   String? resultEmail = await signin(
                                       _emailController.text,
                                       _passwordController.text);
-                                  if (resultEmail!=null) {
-                                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>HomePage(email:resultEmail)), (route) => false);
+                                  if (resultEmail != null) {
+                                    Navigator.pushAndRemoveUntil(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                HomePage(email: resultEmail)),
+                                        (route) => false);
                                   }
                                 }
                               },

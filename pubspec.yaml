@@ -32,10 +32,12 @@ dependencies:
   cupertino_icons: ^1.0.2
   firebase_auth: ^4.2.3
   firebase_core: ^2.4.0
+
   flutter:
     sdk: flutter
   geolocator: ^9.0.2
   syncfusion_flutter_charts: ^20.4.38
+  fl_chart: ^0.55.2
 
 dev_dependencies:
   flutter_lints: ^1.0.0
