@@ -60,7 +60,7 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                     width: 300,
-                    height: 230.0,
+                    height: 300.0,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Form(
@@ -89,8 +89,7 @@ class _LoginState extends State<Login> {
                                     border: OutlineInputBorder()),
                                 validator: (value) {
                                   if (value == null ||
-                                      value.isEmpty ||
-                                      value.length > 10) {
+                                      value.isEmpty) {
                                     return "Please enter the phone correctly";
                                   }
 
@@ -105,7 +104,7 @@ class _LoginState extends State<Login> {
                             Padding(
                               padding: const EdgeInsets.all(10.0),
                               child: TextFormField(
-                                textInputAction: TextInputAction.go,
+                                textInputAction: TextInputAction.done,
                                 controller: _passwordController,
                                 obscureText: true,
                                 decoration: const InputDecoration(
