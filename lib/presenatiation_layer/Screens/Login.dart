@@ -149,12 +149,14 @@ class _LoginState extends State<Login> {
                                   String? resultEmail = await signin(
                                       _emailController.text,
                                       _passwordController.text);
-                                  if (resultEmail != null) {
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                    SnackBar(content: Text(resultEmail=="Success!"? "Signin successful!":resultEmail!)),);
+                                  if (resultEmail != null && resultEmail=="Success!") {
                                     Navigator.pushAndRemoveUntil(
                                         context,
                                         MaterialPageRoute(
                                             builder: (context) =>
-                                                HomePage(email: resultEmail)),
+                                                const HomePage()),
                                         (route) => false);
                                   }
                                 }

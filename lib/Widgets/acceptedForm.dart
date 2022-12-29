@@ -15,7 +15,6 @@ class _AcceptedFormState extends State<AcceptedForm> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const SizedBox(height: 13.5),
         const Text(
           "Manager Name:",
           style: TextStyle(
@@ -30,7 +29,7 @@ class _AcceptedFormState extends State<AcceptedForm> {
           textInputAction: TextInputAction.next,
           decoration: InputDecoration(
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(40.0),
+              borderRadius: BorderRadius.circular(10.0),
             ),
             hintText: "Manager's name ...",
           ),
@@ -49,11 +48,12 @@ class _AcceptedFormState extends State<AcceptedForm> {
         TextField(
           controller: widget.phoneCont,
           keyboardType: TextInputType.phone,
+          maxLength: 10,
           decoration: InputDecoration(
             border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(40.0),
+              borderRadius: BorderRadius.circular(10.0),
             ),
-            hintText: "Phone number ...",
+            hintText: "0910...",
           ),
         ),
         const SizedBox(height: 13.5),

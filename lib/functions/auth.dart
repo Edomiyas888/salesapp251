@@ -1,11 +1,32 @@
+import 'dart:io';
+
 import 'package:firebase_auth/firebase_auth.dart';
 
 Future<String?> signin(String email, String password) async {
-  final _auth = FirebaseAuth.instance;
-  UserCredential credential =
-      await _auth.signInWithEmailAndPassword(email: email, password: password);
-  if (credential.user != null) {
-    return credential.user!.email!;
+  try {
+    final _auth = FirebaseAuth.instance;
+    UserCredential credential = await _auth.signInWithEmailAndPassword(
+        email: email, password: password);
+        
+    if (_auth.currentUser!=null) {
+      return "Success!";
+    }
+    return null;
+  } on SocketException catch (_) {
+    return "No internet connection";
+  } on FirebaseException catch (e) {
+    return e.message;
   }
-  return null;
+}
+
+Future<bool> signout() async {
+  try {
+    final _auth = FirebaseAuth.instance;
+    await _auth.signOut();
+    return true;
+  } on SocketException catch (_) {
+    return false;
+  } on FirebaseException catch (_) {
+    return false;
+  }
 }
